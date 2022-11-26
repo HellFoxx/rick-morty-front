@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useToken } from './utils/useToken';
+import { useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import SignUp from './components/forms/signUp/SignUp';
+import { ROUTES } from './consts';
+import { authRoutes, publicRoutes } from './routes';
 
-function App() {
+const App = () => {
+  const { token, setToken } = useToken()
+  const { PUBLIC, AUTH } = ROUTES;
+
+  useEffect(() => {
+    if (!window.location.href.includes(PUBLIC.SIGN_IN) && !window.location.href.includes(PUBLIC.SIGN_UP) && !token) {
+      window.location.href = PUBLIC.SIGN_IN
+    } else if (token) {
+      window.location.href = AUTH.HOME;
+    }
+  }, [token])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {token && authRoutes.map(({ path, Element }) => (
+        <Route path={path} key={path} element={<Element/>} />
+      ))}
+      {publicRoutes.map(({ path, Element }) => (
+        <Route path={path} key={path} element={<Element/>} />
+      ))}
+    </Routes>
   );
 }
 
