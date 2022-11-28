@@ -15,11 +15,10 @@
     .items-wrapper {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
       flex-wrap: wrap;
 
       .item {
-        margin-bottom: 16px;
+        margin: 5px;
       }
     }
 

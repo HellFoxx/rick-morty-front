@@ -1,0 +1,12 @@
+@import '../../../variables.scss';
+
+.characters-filter-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  .filter-item:not(:last-child) {
+    margin-right: 16px;
+  }
+
+}

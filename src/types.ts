@@ -30,13 +30,15 @@ export interface UserUpdateI {
   lastName: string;
 }
 
+export type StatusT = 'alive' | 'dead' | 'unknown';
+export type GenderT = 'felame' | 'male' | 'genderless' | 'unknown';
 export interface CharacterI {
   id: number;
   name: string;
-  status: string;
+  status: StatusT;
   species: string;
   type: string;
-  gender: string;
+  gender: GenderT;
   origin: {
     name: string;
     url: string;

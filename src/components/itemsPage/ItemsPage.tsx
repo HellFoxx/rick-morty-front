@@ -1,4 +1,5 @@
 import { Pagination } from 'antd';
+import { ReactNode } from 'react';
 import './ItemsPage.scss';
 
 interface ItemsPageI<T> {
@@ -6,6 +7,7 @@ interface ItemsPageI<T> {
   ItemRender: any;
   title: string;
   loading?: boolean;
+  additionalContent?: ReactNode
   pagination: {
     total: number;
     current: number;
@@ -14,7 +16,7 @@ interface ItemsPageI<T> {
 }
 
 const ItemsPage = <T,>(props: ItemsPageI<T>) => {
-  const { ItemRender, title, items, pagination, loading } = props;
+  const { ItemRender, title, items, pagination, loading, additionalContent } = props;
 
   return (
     <div className='items-page'>
@@ -22,6 +24,7 @@ const ItemsPage = <T,>(props: ItemsPageI<T>) => {
         <div className='title'>
           <h1>{title}</h1>
         </div>
+        {additionalContent}
         <div className='items-wrapper'>
           {items.map((item, i) => (
             <div className='item' key={i}>
