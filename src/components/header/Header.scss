@@ -1,0 +1,48 @@
+@import '../../variables.scss';
+
+.header-wrapper {
+  background-color: $ui-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $ui-border;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+
+  .menu {
+    border-bottom: 0px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+  }
+
+  .user-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 26px;
+    width: 120px;
+
+    .nickname {
+      color: $ui-gray-dark;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: -2px;
+    }
+
+    .name {
+      font-size: 14px;
+      margin-top: -2px;
+      color: $ui-blue;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+  }
+
+}

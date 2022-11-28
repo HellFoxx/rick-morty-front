@@ -1,0 +1,38 @@
+@import '../../variables.scss';
+
+.items-page {
+  @include wrapper;
+
+  .items-page-container {
+    @include container;
+    flex-direction: column;
+
+    .title h1 {
+      color: $ui-gray-dark;
+      font-size: 36px;
+    }
+
+    .items-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .item {
+        margin-bottom: 16px;
+      }
+    }
+
+    .pagination-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      // .ant-select-selector {
+      //   display: none !important;
+      // }
+    }
+
+  }
+
+}

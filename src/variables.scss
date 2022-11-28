@@ -2,4 +2,24 @@ $ui-gray-dark: #202329;
 $ui-gray-light: #3C3E44;
 $ui-orange: #FF9800;
 $ui-white: #fff;
+$ui-border: rgba(5, 5, 5, 0.06);
+$ui-blue: #1677ff;
 
+@mixin wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $ui-gray-light;
+}
+
+@mixin container {
+  width: 70vw;
+  display: flex;
+  background-color: $ui-white;
+  border-radius: 8px;
+  margin-top: 80px;
+  padding: 16px;
+  box-sizing: border-box;
+}

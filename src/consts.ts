@@ -1,9 +1,15 @@
 export const ROUTES = {
-    AUTH: {
-        HOME: '/home',
-    },
-    PUBLIC: {
-        SIGN_UP: '/signup',
-        SIGN_IN: '/signin',
-    }
-}
+  NAVS: {
+    HOME: '/home',
+    CHARACTERS: '/characters'
+  },
+  AUTH: {
+    HOME: '/home',
+    CHARACTERS: '/characters',
+    CHARACTER: '/character/:characterId'
+  },
+  PUBLIC: {
+    SIGN_UP: '/signup',
+    SIGN_IN: '/signin'
+  }
+};

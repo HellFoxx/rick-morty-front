@@ -1,0 +1,25 @@
+@import '../../../variables.scss';
+
+.character-page-wrapper {
+  @include wrapper;
+
+  .character-page-container {
+    @include container;
+    flex-direction: column;
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      .profile-image {
+        background-position: center;
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        margin-right: 16px;
+      }
+    }
+
+  }
+}

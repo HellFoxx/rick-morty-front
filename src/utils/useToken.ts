@@ -1,31 +1,38 @@
 import { useState } from 'react';
 
 interface useTokenI {
-  setToken: (token: string) => void;
+  setToken: (token: string | undefined, isSession?: boolean) => void;
   token?: string;
 }
-export const useToken = () : useTokenI => {
+export const useToken = (): useTokenI => {
+  const removeToken = () => {
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+  };
+
   const getToken = () => {
-    const tokenString = localStorage.getItem('token');
-    if (tokenString === 'undefined')
-      localStorage.removeItem('token');
-
+    const tokenValue = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (tokenValue === 'undefined') removeToken();
     let userToken = null;
-    if (tokenString !== null)
-      userToken = JSON.parse(tokenString);
-
+    if (tokenValue !== null) userToken = JSON.parse(tokenValue);
     return userToken;
   };
 
   const [token, setToken] = useState(getToken());
 
-  const saveToken = (userToken: string) => {
-    // localStorage.setItem('token', JSON.stringify(userToken));
-    // setToken(userToken);
+  const saveToken = (userToken: string | undefined, isSession?: boolean) => {
+    if (!userToken) {
+      setToken(undefined);
+      removeToken();
+      return;
+    }
+    const storage = isSession ? sessionStorage : localStorage;
+    storage.setItem('token', JSON.stringify(userToken));
+    setToken(userToken);
   };
 
   return {
     setToken: saveToken,
-    token,
+    token
   };
-}
+};

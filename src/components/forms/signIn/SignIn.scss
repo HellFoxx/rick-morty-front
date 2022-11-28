@@ -1,0 +1,12 @@
+@import '../../../variables.scss';
+
+.sign-in-form {
+  .btns-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      width: 140px;
+    }
+  }
+}

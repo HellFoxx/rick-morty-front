@@ -5,6 +5,5 @@
     "semi": true,
     "singleQuote": true,
     "trailingComma": "none",
-    "jsxBracketSameLine": true,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }]
 }

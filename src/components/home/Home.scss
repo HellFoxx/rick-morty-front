@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+
+.home-wrapper {
+  @include wrapper;
+
+  .home-container {
+    @include container;
+    flex-direction: column;
+
+    .welcome {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .log-out {
+        margin-left: 16px;
+      }
+    }
+
+    .edit-wrapper {
+      .form-items-wrapper {
+        display: flex;
+
+        .ant-form-item:not(:first-child) {
+          margin-left: 14px;
+        }
+      }
+    }
+
+  }
+}
