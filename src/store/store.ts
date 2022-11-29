@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from '@reduxjs/toolkit';
+import { applyMiddleware, combineReducers, configureStore, createStore } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 import thunk from 'redux-thunk';
@@ -11,7 +11,10 @@ const persistedReducer = persistReducer(
   })
 );
 
-export const store = createStore(persistedReducer, applyMiddleware(thunk));
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk],
+})
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
